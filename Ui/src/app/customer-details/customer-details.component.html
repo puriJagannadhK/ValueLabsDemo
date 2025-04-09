@@ -1,0 +1,129 @@
+
+<div>
+    <app-header></app-header>
+</div>
+<div class="container mt-4">
+    <h2 class="text-center text-dark">Customer Details</h2>
+
+    <div class="container mt-4">
+
+        <button class="btn button-1 mb-3" (click)="openAddModal()" *ngIf="userRole=='Admin'">Add Customer</button>
+
+        <div class="card shadow-lg p-3">
+            <div class="card-body">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th> ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                            <th *ngIf="userRole=='Admin'">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let customer of customers; let i=index" >
+
+                            <td>{{ i+1}}</td>
+                            <td>{{ customer.firstName }}</td>
+                            <td>{{ customer.lastName }}</td>
+                            <td>{{ customer.phoneNumber }}</td>
+                            <td>{{ customer.email }}</td>
+                            <td *ngIf="userRole=='Admin'">
+                                <button class="btn btn-sm btn-outline-primary me-2" (click)="openEditModal(customer)">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger" (click)="deleteCustomer(customer.userId)">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+<div class="modal fade" id="editCustomerModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Customer</h5>
+                <button type="button" class="btn-close" (click)="closeEditModal()"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="editForm">
+                    <div class="mb-3">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-control" formControlName="firstName">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-control" formControlName="lastName">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" formControlName="phoneNumber">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" formControlName="email">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Close</button>
+                <button type="button" class="btn btn-primary" (click)="saveChanges()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addCustomerModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Customer</h5>
+                <button type="button" class="btn-close" (click)="closeAddModal()"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="addForm">
+                    <div class="mb-3">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-control" formControlName="firstName">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-control" formControlName="lastName">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" formControlName="phoneNumber">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" formControlName="email">
+                    </div>
+                    
+                  
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="text" class="form-control" formControlName="passwordHash">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Role</label>
+                        <input type="text" class="form-control" formControlName="role">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeAddModal()">Close</button>
+                <button type="button" class="btn btn-primary" (click)="saveNewCustomer()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

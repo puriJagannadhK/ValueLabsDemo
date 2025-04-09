@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg" style="background-color: hwb(175 2% 57%);">
+    <div class="container d-flex justify-content-between align-items-center">
+        <!-- Align User Icon to Left -->
+        <div class="d-flex align-items-center" *ngIf="isAuthenticated">
+            <i class="fas fa-user-circle fa-lg text-light me-2"></i>  
+            <span class="text-light fw-bold">{{ userName + "-" + userRole }}</span>
+        </div>
+
+        <!-- Centered Application Title -->
+        <div class="flex-grow-1 text-center">
+            <h1 class="navbar-brand mb-0">Customer DashBoard Application</h1>
+        </div>
+
+        <!-- Align Logout to Right -->
+        <div *ngIf="isAuthenticated">
+            <a class="nav-link text-danger" (click)="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </div>
+</nav>

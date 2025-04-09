@@ -1,0 +1,19 @@
+<div>
+    <app-header></app-header>
+</div>
+<div class="login-container " >
+    <div class="login-box">
+        <div class="form-box">
+            <i class="fas fa-user-circle fa-4x text-center d-block mb-3"></i> 
+            <h4 class="title">Admin/Customer Login</h4>
+            <div *ngIf="errorMessage" class="alert alert-danger text-center">
+                {{ errorMessage }}
+            </div>
+            <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+                <input type="email" formControlName="email" placeholder="Email or UserName" />
+                <input type="password" formControlName="password" placeholder="Password (min 8 chars)" />
+                <button type="submit" [disabled]="!loginForm.valid">LOG IN</button>
+            </form>
+        </div>
+    </div>
+</div>

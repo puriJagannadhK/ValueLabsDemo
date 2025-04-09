@@ -1,0 +1,82 @@
+.customer-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.customer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.customer-table th,
+.customer-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.customer-table th {
+    background-color: #007BFF;
+    color: white;
+}
+
+.customer-table td {
+    background-color: white;
+}
+.button-1
+{
+    background-color: #034d40;
+    color: #ddd;
+    border: 1px solid black;
+
+}
+.button-1:hover{
+    background-color: #078d74;
+    color: black;
+    border: 1px solid black;
+}
+
+
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background-color: #28A745;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #218838;
+}
+
+.btn-delete {
+    background-color: #DC3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #C82333;
+}
+
+.card {
+    border-radius: 15px; 
+    background: #fff; 
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    background-color: #034d40; 
+    color: white; 
+}
+
+.table td {
+    padding: 12px; 
+}

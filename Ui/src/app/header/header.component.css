@@ -1,0 +1,12 @@
+.navbar-brand{
+    color: white;
+    text-align: center;
+}
+.nav-link{
+    color: white;
+}
+.navbar{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
